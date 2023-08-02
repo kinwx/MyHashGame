@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --body-background: linear-gradient(135deg, rgb(90, 42, 129) 1%, rgb(71, 163, 159) 45%, rgb(204, 49, 88));
+    --container-background: rgba(255, 255, 255, .5);
+    --font-size: calc(10px + 1vmin);
+
+    --button-background: rgb(34, 34, 34);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1em;
+
+    font-size: var(--font-size);
+
+    height: 100vh;
+    width: 100vw;
+
+    padding: .5em;
+
+    background-image: var(--body-background);
+}
+
+.container {
+    position: relative;
+
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: repeat(3, 1fr);
+
+    gap: .6em;
+
+    padding: 1em;
+
+    width: 350px;
+    height: 400px;
+    background-color: var(--container-background);
+
+    border-radius: 1em;
+}
+
+    .container > ul {
+        list-style: none;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(3, 1fr);
+        gap: .4em;
+    }
+
+        .container > ul > li > input {
+            background-color: var(--button-background);
+            color: white;
+
+            border-radius: .1em;
+
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            min-width: 100%;
+            min-height: 100%;
+
+            font-size: 4rem;
+            font-weight: 500;
+            font-family: 'Josefins Sans', sans-serif;
+
+            transition: .4s ease-out;
+        }
+
+            .container > ul > li > input:hover {
+                background-color: #101010;
+            }
+
+            .container > ul > li > input:disabled {
+                cursor: not-allowed;
+            }
+
+
+.displayVictory {
+    font-family: 'Poppins', sans-serif;
+
+    border: 5px solid rgb(255, 255, 255);
+    padding: 1em 2em;
+    border-radius: 1em;
+
+    animation: borderLightBlink 1s ease-in-out infinite alternate;
+}
+
+    .displayVictory > h1 {
+        color: white;
+        pointer-events: none;
+        animation: textLightBlink 1s ease-in-out infinite alternate;
+    }
+
+
+.reset-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+
+    background-color: rgb(255, 255, 255, .1);
+
+    width: 80px;
+    height: 80px;
+
+    font-weight: 700;
+
+    border-radius: 50%;
+    color: greenyellow;
+    cursor: pointer;
+}
+    .reset-button > span {
+        pointer-events: none;
+        animation: fade 2.5s ease infinite, spin 2s ease-in infinite backwards;
+    }
+
+.line {
+    position: absolute;
+    width: 90%;
+    height: 10px;
+
+    justify-self: center;
+
+    border-radius: 1em;
+    overflow: hidden;
+}
+    .line-color {
+        width: 0%;
+        height: 10px;
+        background-color: rgba(255, 0, 0, .7);
+
+        animation: occupy 1.2s ease forwards;
+    }
+
+/* ======= Utility Classes ======= */
+
+.inactivated {
+    display: none;
+}
+
+.blocked-screen {
+    pointer-events: none;
+}
+
+/* ======== Media Querys ======== */
+/* Tive que fazer por conta do GalaxyFold 😑 */
+
+@media (max-width: 348px){
+    .container {
+        width: 100vw;
+    }
+}
+
+
+/* ======== Animações ======== */
+
+@keyframes textLightBlink {
+    0% { text-shadow: 0px 5px 10px cornflowerblue;}
+    33% { text-shadow: 0px 5px 15px firebrick;}
+    66% { text-shadow: 0px 5px 10px green;}
+    100% { text-shadow: 0px 5px 15px blueviolet;}
+}
+@keyframes borderLightBlink {
+    0% { box-shadow: inset 0px 5px 10px cornflowerblue;}
+    33% { box-shadow: inset 0px 5px 15px firebrick;}
+    66% { box-shadow: inset 0px 5px 10px green;}
+    100% { box-shadow: inset 0px 5px 15px blueviolet;}
+}
+@keyframes fade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg) ;}
+    100% { transform: rotate(-360deg);}
+}
+@keyframes occupy {
+    0% { width: 0%;}
+    100% { width: 100%;}
+}
