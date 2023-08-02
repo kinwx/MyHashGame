@@ -30,3 +30,7 @@ __Como começou:__ <br>
     | <img src="images/imgsMD/codeComents.png" width="350em" style="border-radius: .3em;"> | <img src="images/imgsMD/cssComents.png" width="270em" style="border-radius: .3em;"> |
 ### Por fim:
 &nbsp; &nbsp; Deixo aqui o link pra você testar e brincar um pouco com esse projeto. Obrigado por ler a documentação! : )
+
+&nbsp;&nbsp;&nbsp;<a href="https://kinwx.github.io/MyHashGame/" target="_blank">
+    <img src="icon/mainIcon.png" width="20em"> Jogo da Velha
+</a>
